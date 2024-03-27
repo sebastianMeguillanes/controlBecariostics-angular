@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row">
+    <form (ngSubmit)="onSubmit()" #form="ngForm" enctype="multipart/form-data" class=" p-5 border border-primary rounded">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="becario" class="form-label">Becario</label>
+              <select class="form-control" id="becario" title="becario" name="becario" [(ngModel)]="selectedBecario" (change)="onBecarioChange($event)">
+                <option *ngFor="let becario of becarios" [value]="becario.id">{{becario.nombre}}</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="lugar" class="form-label">Lugar</label>
+              <input type="text" class="form-control" id="lugar" title="lugar" name="lugar" [(ngModel)]="lugar" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="file" class="form-label">Archivo</label>
+              <input type="file" class="form-control" id="file" title="file" name="file" (change)="onFileSelected($event)">
+            </div>
+          </div>
+
+          <div class="col-md-6">
+
+            <div class="mb-3">
+              <label for="fecha-hora" class="form-label">Fecha y hora</label>
+              <input type="datetime-local" class="form-control" id="fecha-hora" title="fecha-hora" name="fecha-hora" [(ngModel)]="fechaHora" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea class="form-control" id="descripcion" title="descripcion" name="descripcion" [(ngModel)]="descripcion" required rows="5"></textarea>
+            </div>
+          </div>
+
+          <div class="col-md-12 text-center mt-3">
+            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
